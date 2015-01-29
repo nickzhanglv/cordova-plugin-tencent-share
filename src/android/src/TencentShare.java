@@ -33,13 +33,22 @@ public class TencentShare extends CordovaPlugin {
       this.callbackContext = callbackContext;
       JSONObject jsonObject = args.getJSONObject(0);
       String appid = jsonObject.getString("appid");
-      if (mTencent == null) {
-        mTencent = Tencent.createInstance(appid, this.cordova.getActivity());
-      }
+
       title = jsonObject.getString("title");
       summary = jsonObject.getString("summary");
       target_url = jsonObject.getString("target_url");
       image_url = jsonObject.getString("image_url");
+
+      System.out.println(appid);
+      System.out.println(title);
+      System.out.println(summary);
+      System.out.println(target_url);
+      System.out.println(image_url);
+      System.out.println(cordova.getActivity());
+
+      Tencent mTencent = Tencent.createInstance(appid, cordova.getActivity().getApplicationContext());
+      System.out.println("mTencent "+mTencent);
+
 
       JSONObject result = new JSONObject();
       result.put("result", true);
@@ -66,10 +75,6 @@ public class TencentShare extends CordovaPlugin {
   public void sharetoQQ(String title, String summary, String target_url, String image_url) {
     Bundle bundle = new Bundle();
     bundle.clear();
-    System.out.println(title);
-    System.out.println(summary);
-    System.out.println(target_url);
-    System.out.println(image_url);
     bundle.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
     bundle.putInt(QQShare.SHARE_TO_QQ_EXT_INT, QQShare.SHARE_TO_QQ_FLAG_QZONE_ITEM_HIDE);
     bundle.putString(QQShare.SHARE_TO_QQ_TITLE, title);
@@ -82,10 +87,6 @@ public class TencentShare extends CordovaPlugin {
   public void sharetoQzone(String title, String summary, String target_url, String image_url) {
     Bundle bundle = new Bundle();
     bundle.clear();
-    System.out.println(title);
-    System.out.println(summary);
-    System.out.println(target_url);
-    System.out.println(image_url);
     bundle.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE, QzoneShare.SHARE_TO_QZONE_TYPE_IMAGE_TEXT);
     bundle.putInt(QzoneShare.SHARE_TO_QQ_EXT_INT, QQShare.SHARE_TO_QQ_FLAG_QZONE_ITEM_HIDE);
     bundle.putString(QzoneShare.SHARE_TO_QQ_TITLE, title);
