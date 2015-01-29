@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.share.TencentShare" version="0.0.1">
+        id="com.share.tencentShare" version="0.0.1">
   <name>TencentShare</name>
   <description>Plugin for QQ , Qzone share</description>
   <author>lv</author>
@@ -15,7 +15,7 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="TencentShare">
-        <param name="android-package" value="com.share.TencentShare"/>
+        <param name="android-package" value="com.share.tencentShare"/>
       </feature>
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest">
@@ -51,6 +51,6 @@
 
     <source-file src="src/android/libs/mta-sdk-1.6.2.jar" target-dir="libs"/>
     <source-file src="src/android/libs/open_sdk_r4547.jar" target-dir="libs"/>
-    <source-file src="src/android/src/TencentShare.java" target-dir="src/com/share/TencentShare" />
+    <source-file src="src/android/src/TencentShare.java" target-dir="src/com/share/tencentShare" />
   </platform>
 </plugin>

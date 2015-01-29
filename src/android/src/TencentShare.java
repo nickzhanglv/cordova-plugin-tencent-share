@@ -1,4 +1,4 @@
-package com.share.TencentShare;
+package com.share.tencentShare;
 
 import java.io.FileNotFoundException;
 import java.io.BufferedInputStream;
@@ -53,12 +53,12 @@ public class TencentShare extends CordovaPlugin {
 
   public static Tencent mTencent = null;
 
-  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+  public boolean execute(String action, JSONArray jsonObject, CallbackContext callbackContext) throws JSONException {
     try {
       this.callbackContext = callbackContext;
       String appid = jsonObject.getString("appid");
       if(mTencent = null){
-          mTencent = Tencent.createInstance(appid, this);
+          mTencent = Tencent.createInstance(appid, this.getApplicationContext());
       }
       title = jsonObject.getString("title");
       summary = jsonObject.getString("summary");
@@ -92,7 +92,7 @@ public void sharetoQQ(String title,String summary,String target_url,String image
     bundle.putString(QQShare.SHARE_TO_QQ_SUMMARY, summary);
     bundle.putString(QQShare.SHARE_TO_QQ_TARGET_URL, target_url);
     bundle.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, image_url);
-    mTencent.shareToQQ(this, bundle, new BaseUiListener());
+    mTencent.shareToQQ(this.getApplicationContext(), bundle, new BaseUiListener());
   }
 
   public void sharetoQzone(String title,String summary,String target_url,String image_url) {
@@ -106,7 +106,7 @@ public void sharetoQQ(String title,String summary,String target_url,String image
     ArrayList<String> imageUrls = new ArrayList<String>();
     imageUrls.add(image_url);
     bundle.putStringArrayList(QzoneShare.SHARE_TO_QQ_IMAGE_URL, imageUrls);
-    mTencent.shareToQzone(this, bundle, new BaseUiListener());
+    mTencent.shareToQzone(this.getApplicationContext(), bundle, new BaseUiListener());
   }
   
   public class BaseUiListener implements IUiListener {
