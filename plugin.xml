@@ -7,8 +7,8 @@
   <license>Apache 2.0</license>
   <keywords>cordova,device,qq,social</keywords>
 
-  <js-module src="www/tencent_share.js" name="Tencent">
-    <clobbers target="Tencent" />
+  <js-module src="www/tencent_share.js" name="TencentShare">
+    <clobbers target="TencentShare" />
   </js-module>
 
   <!-- android -->
