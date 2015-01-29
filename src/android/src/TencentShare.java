@@ -66,6 +66,10 @@ public class TencentShare extends CordovaPlugin {
   public void sharetoQQ(String title, String summary, String target_url, String image_url) {
     Bundle bundle = new Bundle();
     bundle.clear();
+    System.out.println(title);
+    System.out.println(summary);
+    System.out.println(target_url);
+    System.out.println(image_url);
     bundle.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
     bundle.putInt(QQShare.SHARE_TO_QQ_EXT_INT, QQShare.SHARE_TO_QQ_FLAG_QZONE_ITEM_HIDE);
     bundle.putString(QQShare.SHARE_TO_QQ_TITLE, title);
@@ -78,6 +82,10 @@ public class TencentShare extends CordovaPlugin {
   public void sharetoQzone(String title, String summary, String target_url, String image_url) {
     Bundle bundle = new Bundle();
     bundle.clear();
+    System.out.println(title);
+    System.out.println(summary);
+    System.out.println(target_url);
+    System.out.println(image_url);
     bundle.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE, QzoneShare.SHARE_TO_QZONE_TYPE_IMAGE_TEXT);
     bundle.putInt(QzoneShare.SHARE_TO_QQ_EXT_INT, QQShare.SHARE_TO_QQ_FLAG_QZONE_ITEM_HIDE);
     bundle.putString(QzoneShare.SHARE_TO_QQ_TITLE, title);
