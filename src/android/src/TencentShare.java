@@ -53,9 +53,10 @@ public class TencentShare extends CordovaPlugin {
 
   public static Tencent mTencent = null;
 
-  public boolean execute(String action, JSONArray jsonObject, CallbackContext callbackContext) throws JSONException {
+  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
     try {
       this.callbackContext = callbackContext;
+      JSONObject jsonObject = args.getJSONObject(0);
       String appid = jsonObject.getString("appid");
       if(mTencent = null){
           mTencent = Tencent.createInstance(appid, this.getApplicationContext());
