@@ -49,8 +49,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </config-file>
 
-    <source-file src="src/android/libs/mta-sdk-1.6.2.jar" target-dir="libs"/>
-    <source-file src="src/android/libs/open_sdk_r4547.jar" target-dir="libs"/>
+    <source-file src="src/android/libs/open_sdk_r4547_lite.jar" target-dir="libs"/>
     <source-file src="src/android/src/TencentShare.java" target-dir="src/com/share/tencentShare" />
   </platform>
 </plugin>
